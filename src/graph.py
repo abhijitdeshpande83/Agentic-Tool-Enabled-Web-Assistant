@@ -28,7 +28,7 @@ class State(TypedDict):
 
 @tool
 def search_web_tool(query:str):
-    "Use this tool to search the internext for real-time information"
+    "Use this tool to search the internet for real-time information"
     tavily_search = TavilyClient()
     response = tavily_search.search(query=query)
 
