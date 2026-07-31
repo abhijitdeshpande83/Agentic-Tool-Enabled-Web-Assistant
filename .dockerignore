@@ -1,0 +1,20 @@
+# Documentation files
+README.md
+docs/
+
+# Python cache / logs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual environments
+venv/
+.env/
+
+# Git/system files
+.git/
+.gitignore
+.DS_Store
+
