@@ -1,0 +1,9 @@
+.env
+.DS_Store
+._*
+cu.sh
+
+# ATLAS Project
+
+/venv
+__pycache__

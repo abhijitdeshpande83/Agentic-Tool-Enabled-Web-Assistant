@@ -1,35 +1,28 @@
-import os
-from langchain_groq import ChatGroq
-from tavily import TavilyClient
-from rich import print
+from config import get_llm, get_search_tool
 from typing import Annotated
 from typing_extensions import TypedDict
 from langchain_core.tools import tool
-from langgraph.graph import StateGraph, START, END
+from langgraph.graph import StateGraph, START
 from langgraph.prebuilt import ToolNode
 from langgraph.prebuilt import tools_condition
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph.message import add_messages
-from dotenv import load_dotenv
-load_dotenv()
 
-# Define Model
-model="llama-3.3-70b-versatile"
 
 # Define LLM
-llm = ChatGroq(model=model)
+llm = get_llm()
 
 # Define State
 class State(TypedDict):
 
     messages: Annotated[list, add_messages]
 
-# Define Tavily Tool
+# Define Search Tool
 
 @tool
 def search_web_tool(query:str):
     "Use this tool to search the internet for real-time information"
-    tavily_search = TavilyClient()
+    tavily_search = get_search_tool()
     response = tavily_search.search(query=query)
 
     return [
