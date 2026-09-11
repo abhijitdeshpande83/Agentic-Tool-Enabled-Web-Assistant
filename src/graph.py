@@ -1,4 +1,4 @@
-from config import get_llm, get_search_tool
+from src.config import get_llm, get_search_tool
 from typing import Annotated
 from typing_extensions import TypedDict
 from langchain_core.tools import tool
